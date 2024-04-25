@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "MOONLIT",
-  description: "Our organization hosts daily BGMI scrims, offering you unlimited fun. Register your team now to participate in the excitement. Secure your spot now and elevate your gaming experience to the next level! ",
+  description: "Our organization hosts daily BGMI scrims, offering you unlimited fun. Register your team now to participate in the excitement and Secure your spot now. Elevate your gaming experience to the next level! ",
 };
 
 export default function RootLayout({ children }) {
