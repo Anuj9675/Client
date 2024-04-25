@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "MOONLIT",
-  description: "For daily BGMI scrims and tournament",
+  description: "For daily BGMI scrims and tournaments",
 };
 
 export default function RootLayout({ children }) {
