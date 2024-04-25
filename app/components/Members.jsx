@@ -42,10 +42,12 @@ const Members = () => {
     return (
         <section id="Team" className={`${styles.paddingY} ${styles.padding}`}>
             <div className="container mx-auto">
-                <h1 className="text-white text-3xl sm:text-5xl font-bold m-20 text-center">Our Participants</h1>
+                <div className="text-white text-3xl lg:text-5xl font-bold mx-auto my-14 text-center">
+                <h1 >Our Participant</h1>
+                </div>
                 <div className="flex flex-wrap justify-center gap-4">
                     {Play.map(({ id, image, title }) => (
-                        <div key={id} className="lg:w-[18%] md:w-[42%] sm:w-full bg-slate-900 p-4 mb-4 rounded-t-lg">
+                        <div key={id} className="lg:w-[18%] md:w-[42%] sm:w-[100%] bg-slate-900 p-4 mb-4 rounded-t-lg">
                             <div className="relative w-full h-24">
                                 <img
                                     src={image}
