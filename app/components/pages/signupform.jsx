@@ -1,4 +1,4 @@
-// components/LoginForm.js
+'use client'
 import { useEffect, useState } from "react";
 import { account, ID } from '../appwrite';
 

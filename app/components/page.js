@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import LoginForm from './pages/LoginForm';
 import SignupForm from './pages/SignupForm';
