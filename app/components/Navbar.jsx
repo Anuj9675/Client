@@ -1,30 +1,15 @@
 'use client'
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
+
   const [toggle, setToggle] = useState(false);
-  const menuRef = useRef(null);
+  const handleClick = () => {
+    setToggle(!toggle);
+  };
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setToggle(false);
-      }
-    };
-
-    if (toggle) {
-      document.addEventListener('click', handleClickOutside);
-    } else {
-      document.removeEventListener('click', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [toggle]);
-
-  const handleClick = (id) => {
+  const handleClickLink = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -59,31 +44,52 @@ const Navbar = () => {
     <nav className="w-full flex px-2 py-1 justify-between items-center fixed top-0 z-10 bg-black shadow-sm shadow-gray-900">
       <img src="../logo.png" alt="MOONLIT" className="w-[80px] h-[80px]" />
 
-      <ul ref={menuRef} className={`list-none sm:flex hidden justify-end items-center flex-1 ${toggle ? '' : 'hidden'}`}>
+      {/* Desktop view */}
+      <ul className="hidden sm:flex justify-end items-center">
         {navLinks.map((nav) => (
           <li
             key={nav.id}
             className="font-poppins font-semibold cursor-pointer text-[16px] text-white mr-8 px-4 py-1 hover:text-violet-400 hover:underline underline-offset-8 decoration-4"
-            onClick={() => handleClick(nav.id)}
+            onClick={() => handleClickLink(nav.id)}
           >
             {nav.title}
           </li>
         ))}
       </ul>
 
-      <div className="sm:hidden flex flex-1 justify-end items-center">
+      {/* Mobile view */}
+      <div className="sm:hidden">
         {toggle ? (
-          <FaTimes
-            className="w-[28px] h-[28px] object-contain"
-            onClick={() => setToggle(!toggle)}
-          />
+          <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center">
+            <ul className="text-white text-center">
+              {navLinks.map((nav) => (
+                <li
+                  key={nav.id}
+                  className="py-4 cursor-pointer"
+                  onClick={() => handleClickLink(nav.id)}
+                >
+                  {nav.title}
+                </li>
+              ))}
+            </ul>
+          </div>
         ) : (
           <FaBars
-            className="w-[28px] h-[28px] object-contain"
-            onClick={() => setToggle(!toggle)}
+            className="w-[28px] h-[28px] text-white cursor-pointer"
+            onClick={handleClick}
           />
         )}
       </div>
+
+      {/* Cross button for mobile view */}
+      {toggle && (
+        <div className="sm:hidden">
+          <FaTimes
+            className="w-[28px] h-[28px] text-white cursor-pointer"
+            onClick={handleClick}
+          />
+        </div>
+      )}
     </nav>
   );
 };

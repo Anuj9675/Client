@@ -37,7 +37,7 @@ function Register() {
         <div>
           <p className="text-white text-3xl sm:text-5xl font-bold m-6 mb-10">Tournaments</p>
         </div>
-        <div className="flex flex-col sm:flex-row w-full bg-slate-900">
+        <div className="flex flex-row w-full bg-slate-900">
           <button
             className={`flex-1 text-white text-2xl font-bold p-4 cursor-pointer relative ${
               selectedComponent === 'tournament' ? 'selected ' : ''
