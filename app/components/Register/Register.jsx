@@ -39,7 +39,7 @@ function Register() {
         </div>
         <div className="flex flex-row w-full bg-slate-900">
           <button
-            className={`flex-1 text-white text-2xl font-bold p-4 cursor-pointer relative ${
+            className={`flex-1 text-white lg:text-2xl font-bold p-4 cursor-pointer relative ${
               selectedComponent === 'tournament' ? 'selected ' : ''
             }`}
             onClick={() => handleHeadingClick('tournament')}
@@ -50,7 +50,7 @@ function Register() {
             )}
           </button>
           <button
-            className={`flex-1 text-white text-2xl font-bold p-4 cursor-pointer relative ${
+            className={`flex-1 text-white lg:text-2xl font-bold p-4 cursor-pointer relative ${
               selectedComponent === 'scrims' ? 'selected ' : ''
             }`}
             onClick={() => handleHeadingClick('scrims')}
