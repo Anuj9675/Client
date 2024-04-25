@@ -58,14 +58,17 @@ const Navbar = () => {
       </ul>
 
       {/* Mobile view */}
-      <div className="sm:hidden">
-        {toggle ? (
-          <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center">
+      <div className="sm:hidden relative">
+        {toggle && (
+          <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center" onClick={handleClick}>
+            <FaTimes
+              className="w-[28px] h-[28px] text-white cursor-pointer absolute top-2 right-2"
+            />
             <ul className="text-white text-center">
-              {navLinks.map((nav) => (
+              {navLinks.map((nav, index) => (
                 <li
                   key={nav.id}
-                  className="py-4 cursor-pointer"
+                  className={`py-4 cursor-pointer ${index !== navLinks.length - 1 ? 'border-b border-gray-500' : ''} hover:text-violet-400 hover:underline underline-offset-8`}
                   onClick={() => handleClickLink(nav.id)}
                 >
                   {nav.title}
@@ -73,23 +76,14 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-        ) : (
+        )}
+        {!toggle && (
           <FaBars
-            className="w-[28px] h-[28px] text-white cursor-pointer"
+            className="w-[28px] h-[28px] text-white cursor-pointer absolute top-2 right-2"
             onClick={handleClick}
           />
         )}
       </div>
-
-      {/* Cross button for mobile view */}
-      {toggle && (
-        <div className="sm:hidden">
-          <FaTimes
-            className="w-[28px] h-[28px] text-white cursor-pointer"
-            onClick={handleClick}
-          />
-        </div>
-      )}
     </nav>
   );
 };
