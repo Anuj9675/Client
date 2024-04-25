@@ -42,6 +42,10 @@ const Navbar = () => {
       title: "About",
     },
     {
+      id: "Team",
+      title: "Teams",
+    },
+    {
       id: "live",
       title: "Scrims",
     },

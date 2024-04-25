@@ -27,7 +27,7 @@ const Hero = () => {
 
 
       <div className={`flex-1 flex ${styles.flexCenter} ${styles.paddingY} md:my-0 my-10 relative`}>
-        <img src="../Hero.png" alt="pic" className="h-[400px] w-[fit]"  />
+        <img src="../Hero.png" alt="pic" />
 
       </div>
     </section>
